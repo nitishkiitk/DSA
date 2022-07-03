@@ -1,3 +1,4 @@
+/// please make a map for storing the values that we have already called from mountainArray.grt()
 /**
  * // This is the MountainArray's API interface.
  * // You should not implement it, or speculate about its implementation
