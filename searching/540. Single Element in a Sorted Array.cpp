@@ -1,3 +1,4 @@
+// solve using looking to index of the numbers
 int singleNonDuplicate(vector<int>& nums) {
         int n=nums.size();
         int l=0, h=n-1, m=l+(h-l)/2;
