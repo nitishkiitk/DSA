@@ -11,8 +11,8 @@ public:
         int count=0;
         for(int i=0;i<n;i++){
             auto it=matrix[i].begin();
-            auto upper=upper_bound(it, it+n-1, m);
-            count+=upper-it+1;
+            auto upper=upper_bound(it, it+n, m);
+            count+=upper-it;
         }
         return count;
     }
