@@ -3,8 +3,10 @@ public:
     //  comparator function
      static bool compare(pair<int,int>p1, pair<int,int>p2){
         if(p1.second==p2.second){
+            // if freq is same then element in descending order
             return p1.first>p2.first;
         }
+        // freq in ascending order
         else{ return p1.second<p2.second;}
     }
     // frequency count 
