@@ -1,32 +1,48 @@
+// Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+// The solution set must not contain duplicate subsets. Return the solution in any order.
+// class Solution {
+// public:
+//     //Recursion Approach:
+//     //Two options at each step - once take it and once don't take the nums[i]
+//     vector<vector<int>> ans;
+//     void solve(vector<int>& nums, int i, vector<int> temp){
+//         if(i == nums.size()){
+//             ans.push_back(temp);
+//         }else{
+//             solve(nums, i + 1, temp); //skip the nums[i]
+//             temp.push_back(nums[i]);
+//             solve(nums, i + 1, temp); //take the nums[i]
+//         }
+//     }
+//     vector<vector<int>> subsets(vector<int>& nums) {
+//         vector<int> temp;
+//         solve(nums, 0, temp);
+//         return ans;
+//     }
+// };
+
 class Solution {
-    // vector<vector<int>>res;
 public:
+    //intializing a return array
     vector<vector<int>>res;
-    void subset(vector<int>& nums, vector<int>&temp, int i,int cnt, int n){
-        if(i==n){
+    //function to compute the subsets
+    void subset(vector<int>& nums,int i,vector<int>temp){
+        if(i==nums.size()){
             res.push_back(temp);
+            return;
         }
-        temp[cnt]=nums[i];
-        subset(nums, temp, i+1, cnt+1, n);
-        subset(nums, temp, i+1, cnt, n);
+        subset(nums,i+1,temp);
+        temp.push_back(nums[i]);
+        subset(nums, i+1, temp);
         
     }
+    //mmain function
     vector<vector<int>> subsets(vector<int>& nums) {
-        int n=nums.size();
-        // vector<vector<int>>res;
+        int i=0;
         vector<int>temp;
-        int i=0, cnt=0;
-        subset(nums,temp, i, cnt, n );
+        subset(nums,i,temp);
         return res;
-        // void subset(vector<int>temp, int i, int cnt){
-        //     if(i==n){
-        //         res.push_back(temp);
-        //         return;
-        //     }
-        //     temp[cnt]=nums[i];
-        //     subset(temp,i+1, cnt+1);
-        //     subset(temp,i+1, cnt);
-        // }
-        // subset(temp,i, cnt);
+        
     }
 };
